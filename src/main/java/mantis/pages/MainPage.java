@@ -13,13 +13,20 @@ public class MainPage {
     @FindBy(css = "span.user-info")
     private WebElement userName;
 
+    @FindBy(css = "a[href='/mantisbt/view_all_bug_page.php']")
+    private WebElement viewIssuePageButton;
+
     public MainPage(WebDriver driver) {
-    this.driver = driver;
-    wait = new WebDriverWait(driver, 30, 500);
-    PageFactory.initElements(driver, this);
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 30, 500);
+        PageFactory.initElements(driver, this);
     }
 
     public String getUserName() {
         return userName.getText();
+    }
+
+    public void goToViewIssuePage() {
+        viewIssuePageButton.click();
     }
 }

@@ -6,7 +6,7 @@ public class MantisSite {
     private final WebDriver driver;
     private LoginPage loginPage;
     private PasswordPage passwordPage;
-//    private MainPage mainPage;
+    private MainPage mainPage;
     private ViewIssuesPage viewIssuesPage;
 
     public MantisSite(WebDriver driver) {
@@ -14,7 +14,7 @@ public class MantisSite {
 
         loginPage = new LoginPage(driver);
         passwordPage = new PasswordPage(driver);
-//        mainPage = new MainPage(driver);
+        mainPage = new MainPage(driver);
         viewIssuesPage = new ViewIssuesPage(driver);
     }
 
@@ -31,9 +31,9 @@ public class MantisSite {
         return passwordPage;
     }
 
-//    public MainPage getMainPage() {
-//        return mainPage;
-//    }
+   public MainPage getMainPage() {
+       return mainPage;
+    }
 
     public ViewIssuesPage getViewIssuesPage() {
         return viewIssuesPage;

@@ -54,12 +54,13 @@ public class MantisTests {
     public void ViewIssuesTest() throws InterruptedException {
         mantisSite = new MantisSite(driver);
         mantisSite.login("admin", "admin20");
+        mantisSite.getMainPage().goToViewIssuePage();
 
-//        String currentUserName = mantisSite.getMainPage().getUserName();
-//        Assertions.assertEquals("admin", currentUserName);
+        String currentUserName = mantisSite.getMainPage().getUserName();
+        Assertions.assertEquals("admin", currentUserName);
 
-        List<WebElement> list = driver.findElements(By.xpath("//table[@id='buglist']/tbody/tr"));
-        Assertions.assertEquals(50, list.size());
+        int actualListSize = mantisSite.getViewIssuesPage().getIssuesCount();
+        Assertions.assertEquals(50, actualListSize);
 
         Thread.sleep(2311);
     }
